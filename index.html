@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/styles.css">
+    <style>
+    * {
+        font-family: 'Poppins', Courier, monospace;
+        font-weight: bold;
+        font-size: 25px;
+    }
+    #name {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding-left: 20px;
+    }
+    .nav {
+           margin-left: 20px;
+           font-size: 18px;
+           color: black;
+           text-decoration: none;
+    }
+    .nav:hover {
+            transform: scale(1.1);
+    }
+    .nav-container {
+        display: flex;
+        justify-content: flex-end;
+        width: 100%;
+        padding-right: 30px;
+    }
+    footer {
+    background-color: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
+    padding: 20px;
+    text-align: center;
+    width: 100%;
+    box-sizing: border-box;
+    
+    }
+    .fsize {
+        font-size: 15px;
+    }
+    footer a {
+        color: rgb(0, 0, 0);
+        text-decoration: none;
+    }
+
+    footer a:hover {
+        text-decoration: underline;
+    }
+    .wrapper {
+        height: 100vh;
+        display: grid;
+        place-items: center;
+    }
+
+    .typing-demo {
+        width: 63ch;
+        animation: typing 5s steps(22) infinite, blink 0.5s step-end infinite alternate;
+        white-space: nowrap;
+        overflow: hidden;
+        border-right: 3px solid;
+        font-family: monospace;
+        font-size: 30px;
+    }
+
+    @keyframes typing {
+        from {
+            width: 0;
+        }
+    }
+        
+    @keyframes blink {
+        50% {
+            border-color: transparent;
+        }
+    }
+
+    .center-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 20px;
+        height: 100vh;
+        background-image: url('test.png');
+        background-size: contain;
+        background-position: center;
+        position: relative;
+    }
+    .container {
+        background-color: #ffffff;
+        padding: 20px;
+        border-radius: 8px;
+        text-align: center;
+        max-width: 600px;
+        width: 100%;
+    }
+    h1 {
+        color: #ecd608;
+        font-size: 40px;
+    }
+
+    .sentence-builder {
+        margin-bottom: 20px;
+    }
+    #generateBtn {
+        background-color: #1b598b;
+    }
+    #generateBtn:hover {
+        background-color: #3285c7;
+        transform: scale(1.05);
+    }
+    #sentence {
+        font-size: 25px;
+        font-weight: bold;
+        margin-bottom: 10px;
+        color: rgb(204, 77, 77);
+    }
+
+    .options {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        justify-content: center;
+    }
+
+    .option {
+        padding: 10px 15px;
+        border: none;
+        border-radius: 4px;
+        background-color: #000000;
+        color: #fff;
+        font-size: 14px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+    }
+
+    .option:hover {
+        background-color: #34a853;
+    }
+
+    button {
+        padding: 10px 20px;
+        border: none;
+        border-radius: 4px;
+        background-color: #000000;
+        color: #fff;
+        font-size: 16px;
+        cursor: pointer;
+        margin-top: 20px;
+    }
+
+    button:hover {
+        background-color: #000000;
+    }
+
+    #result {
+        margin-top: 20px;
+        padding-left: 100px;
+    }
+
+    img {
+        width: 400px;
+        height: 350px;
+        border-radius: 5px;
+        border-color: #000000;
+    }
+    #have-fun {
+        background-color: #ffffff;
+        color: #ccc;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+    }
+    </style>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="heading">
+        <p id="name">
+            textIt
+            <span class="nav-container">
+                <a href="#text-to-image" class="nav">Text to Image</a>
+                <a href="#have-fun" class="nav">Have Fun</a>
+            </span>
+        </p>
+    </div>
+    <div class="center-container">
+        <div class="wrapper">
+            <div class="typing-demo">
+                Create stunning visuals with our innovative image generation.
+            </div>
+        </div>
+    </div>
+    <br>
+    <br>
+    <hr>
+    <section id="text-to-image">
+        <div class="container">
+            <h1>Text to Image</h1>
+            <div class="sentence-builder">
+                <input type="text" id="sentenceInput" placeholder="Enter your text here" style="width: 100%; padding: 10px; font-size: 20px;">
+                <button id="generateBtn1">Generate Image</button>
+            </div>
+            <div id="result1">
+                <img id="resultImage1" src="" alt="Generated Image will appear here">
+            </div>
+        </div>
+    </section>
+<hr>
+    <section id="have-fun">
+        <div class="container">
+            <h1>Out of queries? .. Try me!</h1>
+            <div class="sentence-builder">
+                <p id="sentence">A photo of a</p>
+                <div class="options">
+                    <button class="option" data-word="fuzzy panda">Fuzzy panda</button>
+                    <button class="option" data-word="British Shorthair cat">British Shorthair cat</button>
+                    <button class="option" data-word="Persian cat">Persian cat</button>
+                    <button class="option" data-word="Shiba Inu dog">Shiba Inu dog</button>
+                    <button class="option" data-word="raccoon">raccoon</button>
+                    <button class="option" data-word="wearing a cowboy hat and">wearing a cowboy hat and</button>
+                    <button class="option" data-word="wearing sunglasses and">wearing sunglasses and</button>
+                    <button class="option" data-word="red shirt">red shirt</button>
+                    <button class="option" data-word="black leather jacket">black leather jacket</button>
+                    <button class="option" data-word="playing a guitar">playing a guitar</button>
+                    <button class="option" data-word="riding a bike">riding a bike</button>
+                    <button class="option" data-word="skateboarding">skateboarding</button>
+                    <button class="option" data-word="in a garden.">in a garden.</button>
+                    <button class="option" data-word="on a beach.">on a beach.</button>
+                    <button class="option" data-word="on top of a mountain.">on top of a mountain.</button>
+                </div>
+            </div>
+            <button id="generateBtn2">Generate Image</button>
+            
+        </div>
+        <div id="result2">
+            <img id="resultImage2" src="" alt="Try Something Out!">
+        </div>
+    </section>
+
+    <footer>
+        <hr>
+        <p style="padding-top: 10px;" class="fsize">&copy; 2024 textIt. 
+            All rights reserved.</p>
+        <p class="fsize">Made by Error404</p>
+    </footer>
+    <script>
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        const token = "";
+        const sentenceInput = document.getElementById("sentenceInput");
+        const image1 = document.getElementById("resultImage1");
+        const button1 = document.getElementById("generateBtn1");
+
+        async function query(inputText, resultImage) {
+            resultImage.src = "/loading.gif";
+            const response = await fetch(
+                "https://api-inference.huggingface.co/models/ZB-Tech/Text-to-Image",
+                {
+                    headers: {
+                        Authorization: `Bearer ${token}`,
+                        "Content-Type": "application/json",
+                    },
+                    method: "POST",
+                    body: JSON.stringify({ "inputs": inputText }),
+                }
+            );
+            const result = await response.blob();
+            return result;
+        }
+
+        button1.addEventListener('click', async function () {
+            if (sentenceInput.value.trim() === '') {
+                alert('Please enter some text.');
+                return;
+            }
+            query(sentenceInput.value.trim(), image1).then((response) => {
+                const objectURL = URL.createObjectURL(response);
+                image1.src = objectURL;
+            });
+        });
+
+        // For "Have Fun" section
+        const options = document.querySelectorAll('.option');
+        const sentenceDisplay = document.getElementById('sentence');
+        const image2 = document.getElementById("resultImage2");
+        const button2 = document.getElementById("generateBtn2");
+
+        options.forEach(option => {
+            option.addEventListener('click', () => {
+                sentenceDisplay.textContent += ` ${option.getAttribute('data-word')}`;
+            });
+        });
+
+        button2.addEventListener('click', async function () {
+            const sentence = sentenceDisplay.textContent.trim();
+            query(sentence, image2).then((response) => {
+                const objectURL = URL.createObjectURL(response);
+                image2.src = objectURL;
+            });
+        });
+    </script>
+</body>
+</html>
